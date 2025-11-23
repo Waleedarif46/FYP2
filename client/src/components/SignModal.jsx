@@ -3,16 +3,14 @@ import VideoPlayer from './VideoPlayer';
 
 const SignModal = ({ isOpen, onClose, sign, isLoading, error }) => {
   const VIDEOS_PER_PAGE = 4;
-  const [currentPage, setCurrentPage] = useState(1);
   const [displayedVideos, setDisplayedVideos] = useState(VIDEOS_PER_PAGE);
 
   // Reset pagination when sign changes
   useEffect(() => {
     if (sign) {
-      setCurrentPage(1);
       setDisplayedVideos(VIDEOS_PER_PAGE);
     }
-  }, [sign?.word]);
+  }, [sign]);
 
   if (!isOpen) return null;
 
@@ -22,12 +20,10 @@ const SignModal = ({ isOpen, onClose, sign, isLoading, error }) => {
 
   const handleLoadMore = () => {
     setDisplayedVideos(prev => Math.min(prev + VIDEOS_PER_PAGE, totalVideos));
-    setCurrentPage(prev => prev + 1);
   };
 
   const handleShowLess = () => {
     setDisplayedVideos(VIDEOS_PER_PAGE);
-    setCurrentPage(1);
     // Scroll to top of modal
     const modalContent = document.querySelector('.modal-content');
     if (modalContent) {

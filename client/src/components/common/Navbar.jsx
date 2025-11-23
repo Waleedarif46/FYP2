@@ -11,6 +11,7 @@ const guestLinks = [
 const authLinks = [
   { label: 'Translate', to: '/translate' },
   { label: 'Learn', to: '/learn' },
+  { label: 'Self Assessment', to: '/learn?view=assessment' },
   { label: 'Profile', to: '/profile' }
 ];
 
