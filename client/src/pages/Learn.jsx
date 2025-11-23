@@ -3,6 +3,22 @@ import { FaSearch } from 'react-icons/fa';
 import SignModal from '../components/SignModal';
 import { searchWLASL, getSuggestions, batchLoadSigns } from '../services/wlasl';
 
+const SIGN_IMAGES = (() => {
+  try {
+    const context = require.context('../assets/ASLsigns', false, /\.(png|jpe?g|webp|svg)$/);
+    const images = {};
+    context.keys().forEach((key) => {
+      const cleaned = key.replace('./', '').split('.')[0].toLowerCase();
+      images[cleaned] = context(key);
+    });
+    return images;
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn('ASL sign images not found in assets/ASLsigns', err);
+    return {};
+  }
+})();
+
 const Learn = () => {
   // Tab state
   const [activeTab, setActiveTab] = useState('alphabets'); // 'alphabets' | 'digits' | 'words'
@@ -107,9 +123,11 @@ const Learn = () => {
     try {
       // If alphabet or digit, show placeholder
       if (isAlphabetOrDigit) {
+        const key = term.toLowerCase();
         setSelectedSign({
           word: term,
-          isPlaceholder: true
+          isPlaceholder: true,
+          image: SIGN_IMAGES[key] || null
         });
         return;
       }

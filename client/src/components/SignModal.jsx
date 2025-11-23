@@ -87,13 +87,23 @@ const SignModal = ({ isOpen, onClose, sign, isLoading, error }) => {
                 {sign.isPlaceholder ? (
                   <div className="mb-6">
                     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-12 border-2 border-blue-200 text-center">
-                      <div className="mb-6">
-                        <div className="inline-flex items-center justify-center w-40 h-40 bg-white rounded-full shadow-lg border-4 border-blue-400">
-                          <span className="text-8xl font-bold text-blue-600">
-                            {sign.word}
-                          </span>
+                      {sign.image ? (
+                        <div className="mb-6 flex justify-center">
+                          <img
+                            src={sign.image}
+                            alt={`ASL sign for ${sign.word}`}
+                            className="w-60 h-60 object-contain rounded-[32px] shadow-glow border-4 border-white/80"
+                          />
                         </div>
-                      </div>
+                      ) : (
+                        <div className="mb-6">
+                          <div className="inline-flex items-center justify-center w-44 h-44 bg-white rounded-full shadow-lg border-4 border-blue-400">
+                            <span className="text-8xl font-bold text-blue-600">
+                              {sign.word}
+                            </span>
+                          </div>
+                        </div>
+                      )}
                       
                       <div className="space-y-3">
                         <p className="text-lg font-semibold text-gray-700">
