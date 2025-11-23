@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page-gradient: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08), transparent 50%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(14, 116, 144, 0.08), transparent 40%);
+}
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+
+  html {
+    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-ink bg-mist;
+    background-image: var(--page-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight text-ink;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-ink;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+
+  .section-shell {
+    @apply relative py-12;
+  }
+
+  .surface-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-3xl border border-white shadow-soft;
+  }
+
+  .surface-card-emphasis {
+    @apply bg-gradient-to-br from-white via-white to-brand-50 shadow-glow;
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-card rounded-2xl;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold bg-brand-50 text-brand-700 uppercase tracking-wide;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-brand-600 hover:bg-brand-500 transition shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-brand-600 bg-white border border-brand-100 hover:border-brand-400 transition shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-medium text-ink/70 hover:text-ink bg-white/40 hover:bg-white/70 transition;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border border-slate-200 bg-white text-ink focus:ring-2 focus:ring-brand-500 focus:border-transparent transition placeholder:text-slate-400;
+  }
+
+  .card-grid {
+    @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+}

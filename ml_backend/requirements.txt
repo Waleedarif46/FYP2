@@ -1,0 +1,18 @@
+# Flask web framework
+flask==2.2.5
+werkzeug==2.2.3
+flask-cors==3.0.10
+
+# Machine Learning
+scikit-learn==1.2.2
+
+# Computer Vision & Image Processing
+opencv-python==4.9.0.80
+mediapipe==0.10.9
+
+# Numerical Computing
+numpy==1.26.4
+
+# Utilities
+python-dotenv==1.0.0
+pillow>=9.0.0
