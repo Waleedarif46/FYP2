@@ -56,21 +56,6 @@ const About = () => {
         ))}
       </section>
 
-      <section className="surface-card surface-card-emphasis p-10 text-center space-y-4">
-        <h2 className="text-3xl font-semibold">Join us in shaping inclusive communication</h2>
-        <p className="text-lg text-ink/70 max-w-3xl mx-auto">
-          Whether you are Deaf, hard of hearing, an ally, or a curious learner, Signverse gives you a modern home
-          to express yourself with clarity and care.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Link to="/register" className="btn-primary">
-            Create a free account
-          </Link>
-          <Link to="/translate" className="btn-secondary">
-            Try the translator
-          </Link>
-        </div>
-      </section>
     </div>
   );
 };

@@ -13,6 +13,7 @@ import SignTranslation from './pages/SignTranslation';
 import Dictionary from './pages/Dictionary';
 import Learn from './pages/Learn';
 import About from './pages/About';
+import Rights from './pages/Rights';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Help from './pages/Help';
@@ -39,6 +40,10 @@ function App() {
                                     <About />
                                 </PublicOnlyRoute>
                             } 
+                        />
+                        <Route 
+                            path="/rights" 
+                            element={<Rights />}
                         />
                         
                         {/* Auth Routes - Available to all */}

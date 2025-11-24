@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 const guestLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
+  { label: 'Rights', to: '/rights' },
   { label: 'Help', to: '/help' }
 ];
 
@@ -12,6 +13,7 @@ const authLinks = [
   { label: 'Translate', to: '/translate' },
   { label: 'Learn', to: '/learn' },
   { label: 'Self Assessment', to: '/learn?view=assessment' },
+  { label: 'Rights', to: '/rights' },
   { label: 'Profile', to: '/profile' }
 ];
 
@@ -33,8 +35,10 @@ const Navbar = () => {
   };
 
   const linkClasses = ({ isActive }) =>
-    `text-sm font-semibold transition-colors ${
-      isActive ? 'text-ink' : 'text-ink/60 hover:text-ink'
+    `text-xs sm:text-sm font-semibold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-transparent transition-all duration-200 ${
+      isActive
+        ? 'text-white bg-gradient-to-r from-brand-500 to-accent-500 shadow-card'
+        : 'text-ink/70 hover:text-ink hover:border-white/60 hover:bg-white/70'
     }`;
 
   return (

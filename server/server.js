@@ -18,13 +18,36 @@ app.use(express.json());
 // Cookie parser
 app.use(cookieParser());
 
-// Enable CORS
-app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+const defaultOrigins = [
+    process.env.CLIENT_URL,
+    ...((process.env.CLIENT_URLS || '').split(',').map(origin => origin.trim()).filter(Boolean)),
+    'http://localhost:3000',
+    'http://127.0.0.1:3000'
+].filter(Boolean);
+
+const uniqueOrigins = [...new Set(defaultOrigins)];
+
+const isLocalNetworkOrigin = (origin = '') => {
+    return /^http:\/\/(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[01])\.)/i.test(origin);
+};
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+
+        if (uniqueOrigins.includes(origin) || isLocalNetworkOrigin(origin)) {
+            return callback(null, true);
+        }
+
+        console.warn(`Blocked CORS origin: ${origin}`);
+        return callback(new Error('Not allowed by CORS'));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+};
+
+app.use(cors(corsOptions));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));

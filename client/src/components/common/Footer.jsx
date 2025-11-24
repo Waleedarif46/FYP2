@@ -11,8 +11,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className="mt-16 bg-gradient-to-b from-white via-white to-brand-50/60 border-t border-white/60">
-      <div className="page-shell pt-16 pb-10 space-y-12">
+    <footer className="mt-10 bg-gradient-to-b from-white via-white to-brand-50/60 border-t border-white/60">
+      <div className="page-shell pt-12 pb-10 space-y-10">
         <div className="surface-card surface-card-emphasis p-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="section-eyebrow mb-3">Join our community</p>

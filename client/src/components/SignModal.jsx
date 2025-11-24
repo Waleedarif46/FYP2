@@ -109,14 +109,6 @@ const SignModal = ({ isOpen, onClose, sign, isLoading, error }) => {
                           Visual demonstration placeholder. Practice this sign with proper hand shape and movement.
                         </p>
                         
-                        <div className="pt-4 flex items-center justify-center gap-2 text-blue-600">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          <span className="text-sm font-medium">
-                            Video demonstration coming soon
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </div>
